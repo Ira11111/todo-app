@@ -1,6 +1,6 @@
 env: "local"
 storage_path: "internal/database/base/todo.db"
 http_server:
-  address: "localhost:8080"
+  port: "8080"
   timeout: 4
   idle_timeout: 30

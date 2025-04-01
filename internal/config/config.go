@@ -14,7 +14,7 @@ type Config struct {
 }
 
 type HTTPConfig struct {
-	Addr        string `yaml:"address"`
+	Port        string `yaml:"port"`
 	Timeout     int    `yaml:"timeout"`
 	IdleTimeout int    `yaml:"idle_timeout"`
 }
