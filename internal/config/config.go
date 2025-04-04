@@ -8,9 +8,18 @@ import (
 )
 
 type Config struct {
-	Env     string     `yaml:"env"`
-	Storage string     `yaml:"storage_path"`
-	Server  HTTPConfig `yaml:"http_server"`
+	Env      string         `yaml:"env"`
+	Server   HTTPConfig     `yaml:"http_server"`
+	Database DatabaseConfig `yaml:"database"`
+}
+
+type DatabaseConfig struct {
+	Host     string `yaml:"host"`
+	Port     string `yaml:"port"`
+	Password string `yaml:"password"`
+	Username string `yaml:"username"`
+	DBName   string `yaml:"db_name"`
+	SSLMode  string `yaml:"ssl_mode"`
 }
 
 type HTTPConfig struct {

@@ -1,6 +1,0 @@
-env: "local"
-storage_path: "internal/database/base/todo.db"
-http_server:
-  port: "8080"
-  timeout: 4
-  idle_timeout: 30

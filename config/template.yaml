@@ -1,0 +1,13 @@
+env: "local"
+database:
+  host: ""
+  port: ""
+  password: ""
+  username: ""
+  db_name: ""
+  ssl_mode: ""
+
+http_server:
+  port: ""
+  timeout:
+  idle_timeout:
