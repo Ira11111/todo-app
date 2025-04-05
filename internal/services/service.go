@@ -1,8 +1,13 @@
 package services
 
-import "github.com/Ira11111/todo-app/internal/repository"
+import (
+	"github.com/Ira11111/todo-app/internal/models"
+	"github.com/Ira11111/todo-app/internal/repository"
+)
 
 type Authorization interface {
+	generatePasswordHash(password string) string
+	Register(user models.User) (int, error)
 }
 
 type List interface {
@@ -18,5 +23,7 @@ type Service struct {
 }
 
 func NewService(repos *repository.Repository) *Service {
-	return &Service{}
+	return &Service{
+		Authorization: NewAuthService(repos.Authorization),
+	}
 }

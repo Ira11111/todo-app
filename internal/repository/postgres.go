@@ -7,6 +7,13 @@ import (
 	_ "github.com/lib/pq"
 )
 
+const (
+	userTable       = "users"
+	listTable       = "lists"
+	taskTable       = "tasks"
+	listsTasksTable = "lists_tasks"
+)
+
 func NewPostgresDB(cfg *config.Config) (*sqlx.DB, error) {
 	dbCfg := &cfg.Database
 	db, err := sqlx.Open("postgres", fmt.Sprintf(
