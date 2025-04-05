@@ -8,6 +8,8 @@ import (
 type Authorization interface {
 	generatePasswordHash(password string) string
 	Register(user models.User) (int, error)
+
+	GenerateToken(name string) (string, error)
 }
 
 type List interface {
