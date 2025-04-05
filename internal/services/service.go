@@ -7,9 +7,11 @@ import (
 
 type Authorization interface {
 	generatePasswordHash(password string) string
+
 	Register(user models.User) (int, error)
 
-	GenerateToken(name string) (string, error)
+	GenerateToken(name string, password string) (string, error)
+	ParseToken(tokenString string) (int, error)
 }
 
 type List interface {

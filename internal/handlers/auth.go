@@ -24,7 +24,8 @@ func (h *Handler) register(c *gin.Context) {
 }
 
 type loginInput struct {
-	Name string `json:"name" binding:"required"`
+	Name     string `json:"name" binding:"required"`
+	Password string `json:"password" binding:"required"`
 }
 
 func (h *Handler) login(c *gin.Context) {
@@ -33,9 +34,9 @@ func (h *Handler) login(c *gin.Context) {
 		NewErrorResponse(c, http.StatusBadRequest, err.Error())
 		return
 	}
-	token, err := h.services.GenerateToken(input.Name)
+	token, err := h.services.GenerateToken(input.Name, input.Password)
 	if err != nil {
-		NewErrorResponse(c, http.StatusInternalServerError, err.Error())
+		NewErrorResponse(c, http.StatusNotFound, err.Error())
 		return
 	}
 	c.JSON(http.StatusOK, map[string]interface{}{"token": token})
